@@ -1,0 +1,109 @@
+.body{
+	font-size : 16 px ;
+  font-family : "Segoe UI",sans-serif ;
+  background : #f5f5f5 ;
+  margin: 0 ;
+
+}
+.container {
+display: block ;
+width : 70% ;
+margin: 0 auto ;
+ border: 1px solid #800020;
+ border-radius: 15px;
+ padding: 0 0 15px 0; 
+}
+.row {
+width : 100% ;
+display: block ; /*block, flex, grid*/
+}
+.col {
+width : 100% ;
+display: block ;
+}
+.col.col-6 {
+width : 50% ;
+margin: 0 auto ;
+display: block ;
+}
+.info {
+background : #800020 ;
+color : #ffffff ;
+width : 100% ;
+box-sizing : border-box ;
+padding: 15px 25px ;
+text-align : justify-all ;
+margin-bottom : 15px ;
+border-radius : 20px 0px 20px ;
+}
+.form-input {
+display: block ;
+width : 100% ;
+box-sizing : border-box ;
+margin: 10px auto ;
+}
+.form-input label {
+display: block ;
+width : 100% ;
+font-weight : 600 ;
+}
+.form-input .input {
+width : 100% ;
+display: block ;
+box-sizing : border-box ;
+border: 1px solid #cccccc ;
+border-radius : 4px ;
+margin-top : 10px ;
+font-family : inherit ;
+font-size : inherit;
+padding: 5px 15px ;
+}
+.form-input input[ data-input = "cm" ] {
+height: 40px ;
+}
+.button {
+border: none ;
+background : #800020 ;
+border-radius : 4px ;
+padding: 12px 25px ;
+text-transform : uppercase ;
+color : #ffffff ;
+font-weight : 600 ;
+cursor: pointer;
+font-family : inherit ;
+font-size : inherit;
+}
+.button:hover {
+background : #700020 ;
+}
+/*This is media query that makes our page
+responsive on every screen size.
+*/
+@media ( max-width : 768px ) {
+.container {
+width : 90% ;
+}
+.col.col-6 {
+width : 100% ;
+}
+}
+.head{
+  background: #800020;
+ text-align: center;
+ color: white;
+ border-radius: 4px;
+}
+.label{
+  color: #800020;
+}
+.footer{
+  height: 35px;
+  background: #800020;
+  text-align: center;
+  color:white;
+  border-radius:4px;
+  padding: 15px 0 0 0 ;
+}
+/*
+TODO: Add more media queries
+*/
