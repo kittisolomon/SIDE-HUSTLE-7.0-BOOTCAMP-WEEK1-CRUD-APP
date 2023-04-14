@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
  $date = "20".date('y-m-d');
  
  if($password !== $confirm_password){
-    $response = ["res_code"=>"402","status"=>"error","message"=>"Password Mis-Match"];
+    $response = ["status"=>"error","message"=>"Password Mis-Match"];
     echo json_encode($response);
     return;
  }else{
