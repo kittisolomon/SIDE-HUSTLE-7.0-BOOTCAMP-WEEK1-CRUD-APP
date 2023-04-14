@@ -4,8 +4,7 @@ require "db_con.php";
 $request_body = file_get_contents("php://input");
 
 $date = json_encode($request_body);
-
-//if($_SERVER["REQUEST_METHOD" !== "GET"]){
+if($_SERVER['REQUEST_METHOD'] ==='GET'){
 
 $sql = "SELECT * FROM  students";
 
@@ -25,26 +24,24 @@ while( $row = mysqli_fetch_array($query) ){
     $view_json["phoneno"] = $row["phoneno"];
     $view_json["date"] = $row["date"];
     $students["all_students"][] = $view_json;
-    //print_r($view_json);
-   
 }
 
-$response = ["res_code"=>"200","status"=>"success","student_list"=>$students];
+$response = ["status"=>"success","student_list"=>$students];
 echo json_encode($response);
 return;
 
 }else{
-    $response = ["res_code"=>"402","status"=>"error","message"=>"Cannot retrieve Students"];
+    $response = ["status"=>"error","message"=>"No Records Found!"];
    echo json_encode($response);
     return;
 }
-
-/*
 }else{
-    $response = ["res_code"=>"400","status"=>"error","message"=>"Invalid request method"];
+    $response = ["status"=>"error","message"=>"Invalid request method"];
     echo json_encode($response);
     return;
 }
-*/
+
+
+
 
 ?>

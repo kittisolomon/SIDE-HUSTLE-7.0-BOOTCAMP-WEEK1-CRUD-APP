@@ -51,8 +51,8 @@ font-size: 14px;
                 <label for="department">Department:</label>
                 <select name="department" id="department" class="form-control" >
                 <option value="select">--Select Department--</option>
-                <option value="Frontend Development">Agric Department</option> 
-                    <option value="Agric Department">Biology Department</option>
+                <option value="Agric Department">Agric Department</option> 
+                    <option value="Biology Department">Biology Department</option>
                     <option value="Chemistry Department">Chemistry Department</option>  
                     <option value="Computer Science Department">Computer Science Department</option>
                     <option value="Physic Departmentt">Physic Department</option> 

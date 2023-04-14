@@ -2,12 +2,10 @@
 require "db_con.php";
 
 $request_body = file_get_contents("php://input");
-
 $data = json_decode($request_body);
 
-//$id = $_GET['id'];
-
 if($_SERVER['REQUEST_METHOD'] === 'PUT'){
+
 $id = $data->id;
 $firstname = $data->firstname;
 $lastname = $data->lastname;
@@ -29,8 +27,6 @@ if(mysqli_affected_rows($db_con) > 0){
 
     return;
 }
-
-
 }else{
 
     $response = ["status"=>"error","message"=>"Invalid request method"];

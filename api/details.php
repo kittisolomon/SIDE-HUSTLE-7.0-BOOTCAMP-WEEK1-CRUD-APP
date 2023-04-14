@@ -1,12 +1,11 @@
 <?php
 require "db_con.php";
 $request_body = file_get_contents("php://input");
-
 $data = json_encode($request_body);
 
 $id = $_GET['id'];
 
-//if($_SERVER["REQUEST_METHOD" !== "GET"]){
+if($_SERVER['REQUEST_METHOD'] ==='GET'){
 
 $sql = "SELECT * FROM students WHERE id = $id ";
 
@@ -26,26 +25,23 @@ while($row = mysqli_fetch_array($query)){
   $view_json["date"] = $row["date"];
   $std_details["all_details"][] = $view_json;
 
-  //print_r($std_details);
-  $response = ["res_code"=>"200","status"=>"success","student_details"=>$std_details];
-echo json_encode($response);
-return;
+  $response = ["status"=>"success","student_details"=>$std_details];
+  echo json_encode($response);
+  return;
 }
-
 }else{
 
-    $response = ["status"=>"error","message"=>"Cannot retrieve students details"];
+    $response = ["message"=>"Cannot retrieve students details"];
     echo json_encode($response);
      return;
 }
 
-/*
 }else{
-    $response = ["res_code"=>"400","status"=>"error","message"=>"Invalid request method"];
-    echo json_encode($response);
-    return;
+  $response = ["status"=>"error","message"=>"Invalid request method"];
+  echo json_encode($response);
+  return;
 }
-*/
+
 
 
 

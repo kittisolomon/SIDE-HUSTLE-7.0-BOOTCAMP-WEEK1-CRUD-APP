@@ -1,11 +1,9 @@
 <?php
 require "db_con.php";
-
 $request_body = file_get_contents("php://input");
-
 $data = json_decode($request_body);
 
-if($_SERVER['REQUEST_METHOD'] =='POST'){
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
  if(!empty($data->firstname)
   && !empty($data->lastname) 
@@ -29,13 +27,9 @@ if($_SERVER['REQUEST_METHOD'] =='POST'){
  $date = "20".date('y-m-d');
  
  if($password !== $confirm_password){
-
     $response = ["res_code"=>"402","status"=>"error","message"=>"Password Mis-Match"];
-
     echo json_encode($response);
-
     return;
-
  }else{
 
 $password = md5($password);
@@ -45,38 +39,25 @@ $sql = " INSERT INTO students (firstname,lastname,department,gender,age,email,ph
 $query = mysqli_query($db_con, $sql);
 
 if($query){
-
-    $response = ["res_code"=>"200","status"=>"success","message"=>"Registration Sucess"];
-
+  $response = ["status"=>"success","message"=>"Registration Sucess"];
     echo json_encode($response);
-
     return;
-
 }else{
 
-$response = ["res_code"=>"501","status"=>"error","message"=>"Registration Failed"];
-
+$response = ["status"=>"error","message"=>"Registration Failed"];
     echo json_encode($response);
-
     return;
 }
 
  }
  
-
 }else{
-
-    $response = ["res_code"=>"402","status"=>"error","message"=>"Please fill all the required fields"];
-
+    $response = ["status"=>"error","message"=>"Please fill all the required fields"];
     echo json_encode($response);
-
     return;
-}
-    
+}    
 }else{
-    $response = ["res_code"=>"400","status"=>"error","message"=>"Invalid request method"];
-
+    $response = ["status"=>"error","message"=>"Invalid request method"];
     echo json_encode($response);
-
     return;
 }
